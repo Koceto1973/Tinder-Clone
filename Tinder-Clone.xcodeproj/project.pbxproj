@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		353FC53B21890BE400489E2A /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FC53A21890BE400489E2A /* EntryViewController.swift */; };
+		353FC53D2189800000489E2A /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FC53C2189800000489E2A /* UserDetailsViewController.swift */; };
 		359E97A22187ABE7006DEA25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359E97A12187ABE7006DEA25 /* AppDelegate.swift */; };
 		359E97A42187ABE7006DEA25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359E97A32187ABE7006DEA25 /* ViewController.swift */; };
 		359E97A72187ABE7006DEA25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359E97A52187ABE7006DEA25 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		353FC53A21890BE400489E2A /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		353FC53C2189800000489E2A /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		359E979E2187ABE7006DEA25 /* Tinder-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tinder-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		359E97A12187ABE7006DEA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		359E97A32187ABE7006DEA25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				359E97A12187ABE7006DEA25 /* AppDelegate.swift */,
 				359E97A32187ABE7006DEA25 /* ViewController.swift */,
 				353FC53A21890BE400489E2A /* EntryViewController.swift */,
+				353FC53C2189800000489E2A /* UserDetailsViewController.swift */,
 				359E97A52187ABE7006DEA25 /* Main.storyboard */,
 				359E97A82187ABFE006DEA25 /* Assets.xcassets */,
 				359E97AA2187ABFE006DEA25 /* LaunchScreen.storyboard */,
@@ -207,6 +210,7 @@
 			files = (
 				359E97A42187ABE7006DEA25 /* ViewController.swift in Sources */,
 				359E97A22187ABE7006DEA25 /* AppDelegate.swift in Sources */,
+				353FC53D2189800000489E2A /* UserDetailsViewController.swift in Sources */,
 				353FC53B21890BE400489E2A /* EntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

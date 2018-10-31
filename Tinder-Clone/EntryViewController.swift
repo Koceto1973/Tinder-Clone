@@ -26,6 +26,12 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if PFUser.current() != nil {
+            self.performSegue(withIdentifier: "toUpdate", sender: nil)
+        }
+    }
 
     @IBAction func SignUp(_ sender: Any) {
         infoLabel.isHidden  = true
@@ -37,6 +43,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         newUser.signUpInBackground { (success, error) in
             if error == nil {
                 debugPrint("signup ok")
+                self.performSegue(withIdentifier: "toUpdate", sender: nil)
             } else { // detailed error processing
                 // missing username is handled
                 //  missing password is handled
@@ -63,6 +70,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
                 PFUser.logInWithUsername(inBackground: username, password: password) { (pfUser, error) in
                     if error == nil {
                         debugPrint("login ok")
+                        self.performSegue(withIdentifier: "toUpdate", sender: nil)
                     } else { // detailed error processing
                         // missing username is handled
                         // wrong username is handled
