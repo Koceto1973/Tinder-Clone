@@ -38,6 +38,7 @@ class UserDetailsViewController: UIViewController, UINavigationControllerDelegat
                 }
             }
         }
+        // createWomen()
     }
 
     @IBAction func updateProfileImageButtonPressed(_ sender: Any) {
@@ -80,6 +81,35 @@ class UserDetailsViewController: UIViewController, UINavigationControllerDelegat
                         self.infoLabel.text = errorInfo
                     }
                 })
+            }
+        }
+    }
+    
+    // run once to womanize the app
+    func createWomen() {
+        let imageUrls = ["https://upload.wikimedia.org/wikipedia/en/7/76/Edna_Krabappel.png","https://static.comicvine.com/uploads/scale_small/0/40/235856-101359-ruth-powers.png","http://vignette3.wikia.nocookie.net/simpsons/images/f/fb/Serious-sam--cover.jpg/revision/latest?cb=20131109214146","https://s-media-cache-ak0.pinimg.com/736x/e4/42/5a/e4425aad73f01d36ace4c86c3156dcdc.jpg","http://www.simpsoncrazy.com/content/pictures/onetimers/LurleenLumpkin.gif","https://vignette2.wikia.nocookie.net/simpsons/images/b/bc/Becky.gif/revision/latest?cb=20071213001352","http://vignette3.wikia.nocookie.net/simpsons/images/b/b0/Woman_resembling_Homer.png/revision/latest?cb=20141026204206"]
+        
+        var counter = 0
+        
+        for imageUrl in imageUrls {
+            counter += 1
+            if let url = URL(string: imageUrl) {
+                if let data = try? Data(contentsOf: url) {
+                    let imageFile = PFFile(name: "photo.png", data: data)
+                    
+                    let user = PFUser()
+                    user["photo"] = imageFile
+                    user.username = String("user\(counter)")
+                    user.password = "123456"
+                    user["isFemale"] = true
+                    user["isInterestedInWomen"] = false
+                    
+                    user.signUpInBackground(block: { (success, error) in
+                        if success {
+                            print("Women User \(String(describing: user.username)) created!")
+                        }
+                    })
+                }
             }
         }
     }
