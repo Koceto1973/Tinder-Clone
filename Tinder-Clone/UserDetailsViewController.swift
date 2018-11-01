@@ -69,6 +69,7 @@ class UserDetailsViewController: UIViewController, UINavigationControllerDelegat
                 PFUser.current()?.saveInBackground(block: { (success, error) in
                     if error == nil {
                         debugPrint("user data update ok")
+                        self.performSegue(withIdentifier: "toSwipe", sender: nil)
                     } else { // detailed error processing
                         var errorInfo = "user data update fail"
                         if let nsError = error as NSError? {

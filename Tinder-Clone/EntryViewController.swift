@@ -28,6 +28,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // print(PFUser.current() as Any)
         if PFUser.current() != nil {
             self.performSegue(withIdentifier: "toUpdate", sender: nil)
         }
