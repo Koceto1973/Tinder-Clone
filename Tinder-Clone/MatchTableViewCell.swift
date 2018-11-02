@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class MatchTableViewCell: UITableViewCell {
+class MatchTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     // variables
     var recipientObjectId = ""
@@ -22,6 +22,11 @@ class MatchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.messageTextField.delegate = self
+        
+        // keyboard dismiss
+        let tapper = UITapGestureRecognizer(target: self, action:#selector(dismissKeyboard))
+        self.contentView.addGestureRecognizer(tapper)
     }
     
     @IBAction func sendTapped(_ sender: Any) {
@@ -30,12 +35,22 @@ class MatchTableViewCell: UITableViewCell {
         message["sender"] = PFUser.current()?.objectId
         message["recipient"] = recipientObjectId
         message["content"] = messageTextField.text
-        
         message.saveInBackground()
+        
+        messageTextField.text = ""
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    // text fields keybord management
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        messageTextField.resignFirstResponder()
+    }
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        messageTextField.resignFirstResponder()
+        return true
     }
 }
